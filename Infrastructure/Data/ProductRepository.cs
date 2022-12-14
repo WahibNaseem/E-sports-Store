@@ -29,15 +29,34 @@ namespace Infrastructure.Data
                        .Include(x => x.ProductBrand)
                        .Include(x => x.ProductType)
                        .FirstOrDefaultAsync(x => x.Id == id);
+
+
+      //var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
+
+
       return product;
     }
 
     public async Task<IReadOnlyList<Product>> GetProductsAsync()
     {
+      /* var typeId = 1;
+
+       var productsType = _context.Products
+                          .Where(x => x.ProductTypeId == typeId)
+                          .Include(x => x.ProductType);
+
+       var types = await productsType.ToListAsync();*/
+
+
+
       var products = await _context.Products
                          .Include(x => x.ProductBrand)
                          .Include(x => x.ProductType)
                          .ToListAsync();
+
+      // var products = await _context.Products.ToListAsync();
+
+
       return products;
     }
 

@@ -39,6 +39,7 @@ namespace Infrastructure.Data
 
     public async Task<IReadOnlyList<Product>> GetProductsAsync()
     {
+
       /* var typeId = 1;
 
        var productsType = _context.Products
